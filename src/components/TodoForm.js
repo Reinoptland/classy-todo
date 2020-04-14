@@ -1,12 +1,26 @@
 import React, { Component } from "react";
 
 export default class TodoForm extends Component {
+  state = {
+    title: "",
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  };
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h3>Add a todo:</h3>
         <label>Title</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={this.state.title}
+          onChange={(event) => this.setState({ title: event.target.value })}
+        />
+        <input type="submit" />
       </form>
     );
   }
