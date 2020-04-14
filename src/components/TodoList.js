@@ -12,6 +12,12 @@ export default class TodoList extends Component {
     console.log(todos);
     this.setState({ todos: [...this.state.todos, ...todos] });
   }
+
+  toggleCompleted = (id) => {
+    // set the todo item with that id to completed
+    console.log("ID:", id, " Completed");
+  };
+
   render() {
     console.log(this.state);
     return (
@@ -23,6 +29,7 @@ export default class TodoList extends Component {
               title={todo.title}
               completed={todo.completed}
               id={todo.id}
+              toggleCompleted={this.toggleCompleted}
             />
           );
         })}
