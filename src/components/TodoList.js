@@ -14,6 +14,17 @@ export default class TodoList extends Component {
     this.setState({ todos: [...this.state.todos, ...todos] });
   }
 
+  addTodo = (title) => {
+    const newTodo = {
+      id: this.state.todos.length + 1,
+      title: title,
+      completed: false,
+    };
+
+    console.log(newTodo);
+    this.setState({ todos: [newTodo, ...this.state.todos] });
+  };
+
   toggleCompleted = (id) => {
     // set the todo item with that id to completed
     console.log("ID:", id, " Completed");
@@ -31,7 +42,7 @@ export default class TodoList extends Component {
     console.log(this.state);
     return (
       <div>
-        <TodoForm />
+        <TodoForm addTodo={this.addTodo} />
         {this.state.todos.map((todo) => {
           return (
             <TodoItem

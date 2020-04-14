@@ -8,6 +8,7 @@ export default class TodoForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
+    this.props.addTodo(this.state.title);
   };
 
   render() {
