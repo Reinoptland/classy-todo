@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TodoItem from "./TodoItem";
 
 export default class TodoList extends Component {
   state = {
@@ -16,7 +17,14 @@ export default class TodoList extends Component {
     return (
       <div>
         {this.state.todos.map((todo) => {
-          return <li key={todo.id}>{todo.title}</li>;
+          return (
+            <TodoItem
+              key={todo.id}
+              title={todo.title}
+              completed={todo.completed}
+              id={todo.id}
+            />
+          );
         })}
       </div>
     );
