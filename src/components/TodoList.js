@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoItem from "./TodoItem";
+import TodoForm from "./TodoForm";
 
 export default class TodoList extends Component {
   state = {
@@ -30,6 +31,7 @@ export default class TodoList extends Component {
     console.log(this.state);
     return (
       <div>
+        <TodoForm />
         {this.state.todos.map((todo) => {
           return (
             <TodoItem
